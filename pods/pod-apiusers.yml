@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: apiusers
+spec:
+  containers:
+  - name: apiusers
+    image: apiusers:latest
+    ports:
+    - containerPort: 8081

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: apiphotos
+spec:
+  containers:
+  - name: apiphotos
+    image: apiphotos:latest
+    ports:
+    - containerPort: 8080
