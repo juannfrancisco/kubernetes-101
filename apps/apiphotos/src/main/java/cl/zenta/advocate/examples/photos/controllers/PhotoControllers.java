@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,5 +24,19 @@ public class PhotoControllers {
         photos.add(new Photo( "4","4.jpg","Imagen 4 ","http://link4","12-01-2019" ));
         return photos;
 
+    }
+
+
+    @RequestMapping(method = RequestMethod.GET, value="/ip")
+    public String findIp(  ){
+        try {
+            InetAddress inetAddress = InetAddress.getLocalHost();
+            return inetAddress. getHostAddress() + " - " + inetAddress. getHostName();
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+
+        return null;
     }
 }
