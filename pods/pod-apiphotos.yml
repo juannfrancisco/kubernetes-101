@@ -5,6 +5,6 @@ metadata:
 spec:
   containers:
   - name: apiphotos
-    image: apiphotos:latest
+    image: gcr.io/kubernetes-101-227215/apiphotos:latest
     ports:
     - containerPort: 8080
