@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apiphotos
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: apiphotos
+  template:
+    metadata:
+      labels:
+        app: apiphotos
+    spec:
+      containers:
+      - name: apiphotos
+        image: gcr.io/kubernetes-101-227215/apiphotos:latest
+        ports:
+        - containerPort: 8080

@@ -1,0 +1,25 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: apiphotos
+  namespace: default
+spec:
+  scaleTargetRef: 
+    apiVersion: apps/v1beta1
+    kind: Deployment
+    name: apiphotos
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 50
+    spec:
+      containers:
+      - name: apiphotos
+        image: gcr.io/kubernetes-101-227215/apiphotos:latest
+        ports:
+        - containerPort: 8080

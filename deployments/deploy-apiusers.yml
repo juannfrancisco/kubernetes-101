@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apiusers
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: apiusers
+  template:
+    metadata:
+      labels:
+        app: apiusers
+    spec:
+      containers:
+      - name: apiusers
+        image: gcr.io/kubernetes-101-227215/apiusers:latest
+        ports:
+        - containerPort: 8080
