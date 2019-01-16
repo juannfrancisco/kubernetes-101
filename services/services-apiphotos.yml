@@ -10,4 +10,4 @@ spec:
     protocol: TCP
   selector:
     run: apiphotos
-  type: ClusterIp
+  type: ClusterIP
